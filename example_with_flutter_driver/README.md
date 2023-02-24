@@ -17,6 +17,8 @@ samples, guidance on mobile development, and a full API reference.
 
 to run this test
 
+## run test with existing app
+
 1. using existing app,
    start your app first: =flutter run -d chrome test_driver/app.dart=
 2. record the app Uri
@@ -24,3 +26,5 @@ to run this test
 4. run test `flutter test test_driver/test_harness.dart`
    ![result](https://i.imgur.com/qXqZE3U.png "test-result")
 5. you will get test_driver/report.json
+
+## run test directly

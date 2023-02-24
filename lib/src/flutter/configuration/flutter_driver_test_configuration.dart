@@ -185,7 +185,7 @@ class FlutterDriverTestConfiguration extends FlutterTestConfiguration {
     final driver = await createFlutterDriver(
       flutterConfig.runningAppProtocolEndpointUri?.isNotEmpty ?? false
           ? flutterConfig.runningAppProtocolEndpointUri
-          : null,
+          : _observatoryDebuggerUri,
     );
 
     (world as FlutterDriverWorld).setFlutterDriver(driver);
@@ -225,7 +225,7 @@ class FlutterDriverTestConfiguration extends FlutterTestConfiguration {
           world = await providedCreateWorld(config) as FlutterWorld;
         }
 
-        return await createFlutterWorld(config, world);
+        return await config.createFlutterWorld(config, world);
       },
       hooks: List.from(hooks ?? const Iterable.empty())
         ..add(
