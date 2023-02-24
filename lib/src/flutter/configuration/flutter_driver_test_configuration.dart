@@ -225,7 +225,8 @@ class FlutterDriverTestConfiguration extends FlutterTestConfiguration {
           world = await providedCreateWorld(config) as FlutterWorld;
         }
 
-        return await config.createFlutterWorld(config, world);
+        return await (config as FlutterDriverTestConfiguration)
+            .createFlutterWorld(config, world);
       },
       hooks: List.from(hooks ?? const Iterable.empty())
         ..add(
