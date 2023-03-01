@@ -95,7 +95,7 @@ class FlutterRunProcessHandler extends ProcessHandler {
 
   @override
   Future<void> run() async {
-    final arguments = ['run', '--target=$_appTarget'];
+    final arguments = ['run', '--target=$_appTarget', '--web-run-headless'];
 
     if (_buildMode == BuildMode.debug) {
       arguments.add('--debug');
