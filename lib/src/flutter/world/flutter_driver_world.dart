@@ -31,6 +31,8 @@ class FlutterDriverWorld extends FlutterTypedAdapterWorld<FlutterDriver,
       dartVmServiceUrl: _flutterRunProcessHandler!.currentObservatoryUri,
     );
 
+    await driver.waitUntilFirstFrameRasterized();
+
     setFlutterDriver(driver);
 
     return result!;

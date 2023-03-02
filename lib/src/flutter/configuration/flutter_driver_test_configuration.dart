@@ -240,7 +240,7 @@ class FlutterDriverTestConfiguration extends FlutterTestConfiguration {
     int attempt,
     int maxAttempts,
   ) async {
-    return await FlutterDriver.connect(
+    final driver = await FlutterDriver.connect(
       dartVmServiceUrl: dartVmServiceUrl,
     ).catchError(
       (e, st) async {
@@ -262,6 +262,8 @@ class FlutterDriverTestConfiguration extends FlutterTestConfiguration {
         }
       },
     );
+    await driver.waitUntilFirstFrameRasterized();
+    return driver;
   }
 
   void _ensureCorrectConfiguration() {
