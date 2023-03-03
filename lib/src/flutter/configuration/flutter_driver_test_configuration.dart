@@ -262,7 +262,6 @@ class FlutterDriverTestConfiguration extends FlutterTestConfiguration {
         }
       },
     );
-    await driver.waitUntilFirstFrameRasterized();
     return driver;
   }
 
