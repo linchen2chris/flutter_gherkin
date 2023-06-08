@@ -99,10 +99,10 @@ class WidgetTesterAppDriverAdapter
   Future<List<int>> screenshot({String? screenshotName}) async {
     final name =
         screenshotName ?? 'screenshot_${DateTime.now().millisecondsSinceEpoch}';
-    if (kIsWeb && kReleaseMode) {
+    if (kIsWeb) {
       return await binding.takeScreenshot(name);
     }
-    if ((kIsWeb && kDebugMode) || Platform.isAndroid) {
+    if (Platform.isAndroid) {
       // try {
       //   // TODO: See https://github.com/flutter/flutter/issues/92381
       //   // we need to call `revertFlutterImage` once it has been implemented
